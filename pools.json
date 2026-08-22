@@ -50,6 +50,22 @@
       "payout": "The stratum username is your BTC address; the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds.",
       "software": "simplepool",
       "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
+    },
+    {
+      "name": "eCashPool",
+      "operator": "SatsScholar",
+      "chain": "alphanet",
+      "mode": "pps-classic",
+      "fee_bps": 100,
+      "coinbase_tag": "/ecashpool.io/",
+      "stratum_url": "stratum+tcp://stratum.ecashpool.io:3334",
+      "dashboard_url": "https://ecashpool.io",
+      "status_url": "https://ecashpool.io/api/status",
+      "operator_address": "bc1qcpssv3eputpx2nmzvsntlrk3jgyyvqr9h5s5d5",
+      "pool_btc_address": "bc1qcpssv3eputpx2nmzvsntlrk3jgyyvqr9h5s5d5",
+      "payout": "Coinbase pays the pool; miners accrue and are paid out in Thunder. The stratum username is your Thunder address.",
+      "software": "simplepool",
+      "contact": null
     }
   ]
 }
