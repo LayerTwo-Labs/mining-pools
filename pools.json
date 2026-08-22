@@ -1,0 +1,39 @@
+{
+  "$comment": "The source of truth for pools.ecash.com and for block-explorer attribution. Add your pool by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present. coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you.",
+  "updated": "2026-08-22",
+  "schema_version": 1,
+  "pools": [
+    {
+      "name": "bip300.xyz",
+      "operator": "bip300.xyz",
+      "chain": "alphanet",
+      "mode": "solo",
+      "fee_bps": 100,
+      "coinbase_tag": "/bip300xyz/",
+      "stratum_url": "stratum+tcp://pool.alpha.bip300.xyz:3334",
+      "dashboard_url": "https://pool.alpha.bip300.xyz",
+      "status_url": "https://pool.alpha.bip300.xyz/api/status",
+      "operator_address": "bc1qskyznnpqpyp58ynlh036p3jt69ldptlnqhstcd",
+      "pool_btc_address": null,
+      "payout": "Coinbase pays the miner directly. The stratum username is your BTC address.",
+      "software": "simplepool",
+      "contact": null
+    },
+    {
+      "name": "avonpool",
+      "operator": "avonpool.xyz",
+      "chain": "alphanet",
+      "mode": "pps-classic",
+      "fee_bps": 100,
+      "coinbase_tag": "/avonpool/",
+      "stratum_url": "stratum+tcp://pool.alpha.avonpool.xyz:3334",
+      "dashboard_url": "https://pool.alpha.avonpool.xyz",
+      "status_url": "https://pool.alpha.avonpool.xyz/api/status",
+      "operator_address": "bc1q8kkhykqkv2wpc88rz74hzu8ezch8c7ulllte5f",
+      "pool_btc_address": "bc1q8kkhykqkv2wpc88rz74hzu8ezch8c7ulllte5f",
+      "payout": "Coinbase pays the pool; miners accrue and are paid out in Thunder. The stratum username is your Thunder address.",
+      "software": "simplepool",
+      "contact": null
+    }
+  ]
+}

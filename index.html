@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eCash forknet mining pools</title>
+<meta name="description" content="Public mining pools on the eCash forknets — how to connect, and how to list your own.">
+<style>
+  :root{
+    --bg:#fbfaf8; --panel:#fff; --ink:#17181c; --muted:#5f6570; --line:#e4e2dd;
+    --accent:#8a5a2b; --accent-soft:#f4ece3; --code:#f3f1ec; --shadow:0 1px 2px rgba(0,0,0,.05);
+  }
+  :root:not([data-theme="light"]) { }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
+      --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
+    --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:48px 20px 72px}
+  header.top{margin-bottom:40px}
+  h1{font-size:clamp(28px,4.5vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+  .lede{color:var(--muted);font-size:17px;max-width:62ch;margin:0}
+  h2{font-size:20px;margin:48px 0 8px;letter-spacing:-.01em}
+  h2 + .note{color:var(--muted);margin:0 0 20px;max-width:64ch}
+  code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+  code{background:var(--code);padding:.15em .4em;border-radius:4px}
+  a{color:var(--accent)}
+
+  .pool{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;margin-bottom:18px;box-shadow:var(--shadow);
+  }
+  .pool-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:16px}
+  .pool-name{font-size:20px;font-weight:650;letter-spacing:-.01em}
+  .tag{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--line);
+    padding:2px 8px;border-radius:999px;
+  }
+  .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:999px}
+  .connect{
+    display:block;background:var(--code);border:1px solid var(--line);border-radius:8px;
+    padding:12px 14px;margin:0 0 16px;overflow-x:auto;white-space:nowrap;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;
+  }
+  dl.facts{display:grid;grid-template-columns:max-content 1fr;gap:6px 20px;margin:0}
+  dl.facts dt{color:var(--muted);font-size:13px;white-space:nowrap}
+  dl.facts dd{margin:0;font-size:14px;min-width:0;overflow-wrap:anywhere}
+  dl.facts dd.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+  .payout{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+  .callout{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:22px 24px;margin:20px 0;
+  }
+  pre{
+    background:var(--code);border:1px solid var(--line);border-radius:8px;
+    padding:16px;overflow-x:auto;margin:16px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.55;
+  }
+  table.fields{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;display:block;overflow-x:auto}
+  table.fields th,table.fields td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.fields th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+  table.fields td:first-child{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;white-space:nowrap;
+  }
+  .req{color:var(--accent);font-weight:600}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  @media (max-width:560px){
+    dl.facts{grid-template-columns:1fr;gap:2px}
+    dl.facts dt{margin-top:8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>eCash forknet mining pools</h1>
+    <p class="lede">
+      Public pools you can point hashrate at. Each one mines a BIP300/301 forknet,
+      building its blocks from a <code>bip300301_enforcer</code> template so sidechains
+      can actually be merge-mined.
+    </p>
+  </header>
+
+  <h2>Pools</h2>
+  <p class="note">Point your miner at the stratum URL. Read the payout line first — what you put in the
+     username field differs by mode.</p>
+  <div id="pools"></div>
+
+  <h2>List your pool here</h2>
+  <p class="note">Open a pull request against
+     <a href="https://github.com/LayerTwo-Labs/mining-pools">LayerTwo-Labs/mining-pools</a>
+     adding one object to the <code>pools</code> array in <code>pools.json</code>. That file is also what
+     feeds pool attribution in the block explorer, so the fields below are not decoration.</p>
+
+  <div class="callout">
+    <strong>Why <code>coinbase_tag</code> matters most.</strong>
+    It is the string your pool stamps into the coinbase of every block it finds, and it is
+    the only thing an explorer can use to attribute a block to you. Get it wrong — or leave it at
+    the <code>simplepool</code> default — and your blocks are credited to someone else, silently.
+    Copy it from your running <code>proxy.conf</code>, not from memory.
+  </div>
+
+  <pre id="template"></pre>
+
+  <table class="fields">
+    <thead><tr><th>Field</th><th></th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td>name</td><td class="req">required</td><td>Short display name for this page.</td></tr>
+      <tr><td>operator</td><td class="req">required</td><td>Who runs it — an org, handle or domain.</td></tr>
+      <tr><td>chain</td><td class="req">required</td><td>Which forknet, e.g. <code>alphanet</code>. Note bitcoind itself reports <code>main</code> on every one of these: they are all mainnet forks.</td></tr>
+      <tr><td>mode</td><td class="req">required</td><td><code>solo</code> or <code>pps-classic</code>. Determines what the stratum username must be.</td></tr>
+      <tr><td>fee_bps</td><td class="req">required</td><td>Fee in basis points. <code>100</code> = 1%.</td></tr>
+      <tr><td>coinbase_tag</td><td class="req">required</td><td>Exactly as it appears in your coinbase, slashes included.</td></tr>
+      <tr><td>stratum_url</td><td class="req">required</td><td>Full <code>stratum+tcp://host:port</code> a miner can paste.</td></tr>
+      <tr><td>operator_address</td><td class="req">required</td><td>Address taking the fee cut.</td></tr>
+      <tr><td>dashboard_url</td><td>optional</td><td>Public stats page, if you have one.</td></tr>
+      <tr><td>status_url</td><td>optional</td><td>Machine-readable status, e.g. <code>/api/status</code>.</td></tr>
+      <tr><td>pool_btc_address</td><td>optional</td><td>Where the coinbase pays in <code>pps-classic</code>. <code>null</code> for solo.</td></tr>
+      <tr><td>payout</td><td>optional</td><td>One sentence a miner needs before connecting.</td></tr>
+      <tr><td>software</td><td>optional</td><td>e.g. <code>simplepool</code>.</td></tr>
+      <tr><td>contact</td><td>optional</td><td>Somewhere to reach you if the pool misbehaves.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">Keep the array sorted however the diff is cleanest — order on this page follows the file.
+     A PR that changes another operator's entry will not be merged without their sign-off.</p>
+
+  <footer>
+    Generated from <code>pools.json</code> · <span id="updated"></span> ·
+    <a href="https://github.com/LayerTwo-Labs/mining-pools">source</a>
+  </footer>
+</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const row = (k, v, mono) => v == null || v === ''
+  ? '' : `<dt>${esc(k)}</dt><dd class="${mono?'mono':''}">${esc(v)}</dd>`;
+
+fetch('pools.json', {cache:'no-cache'}).then(r => r.json()).then(d => {
+  document.getElementById('updated').textContent = 'updated ' + (d.updated || 'unknown');
+  document.getElementById('pools').innerHTML = (d.pools || []).map(p => `
+    <div class="pool">
+      <div class="pool-head">
+        <span class="pool-name">${esc(p.name)}</span>
+        <span class="tag">${esc(p.coinbase_tag)}</span>
+        <span class="chip">${esc(p.chain)}</span>
+        <span class="chip">${esc(p.mode)}</span>
+        <span class="chip">${(p.fee_bps/100)}% fee</span>
+      </div>
+      <code class="connect">${esc(p.stratum_url)}</code>
+      <dl class="facts">
+        ${row('Operator', p.operator)}
+        ${row('Fee address', p.operator_address, true)}
+        ${row('Pool address', p.pool_btc_address, true)}
+        ${p.dashboard_url ? `<dt>Dashboard</dt><dd><a href="${esc(p.dashboard_url)}">${esc(p.dashboard_url)}</a></dd>` : ''}
+        ${row('Software', p.software)}
+        ${row('Contact', p.contact)}
+      </dl>
+      ${p.payout ? `<p class="payout">${esc(p.payout)}</p>` : ''}
+    </div>`).join('') || '<p class="note">No pools listed yet.</p>';
+}).catch(e => {
+  document.getElementById('pools').innerHTML =
+    '<div class="pool"><p class="note">Could not load <code>pools.json</code>: ' + esc(e.message) + '</p></div>';
+});
+
+document.getElementById('template').textContent = JSON.stringify({
+  name: "your-pool",
+  operator: "you or your org",
+  chain: "alphanet",
+  mode: "pps-classic",
+  fee_bps: 100,
+  coinbase_tag: "/yourpool/",
+  stratum_url: "stratum+tcp://pool.example.com:3334",
+  dashboard_url: "https://pool.example.com",
+  status_url: "https://pool.example.com/api/status",
+  operator_address: "bc1q...",
+  pool_btc_address: "bc1q...",
+  payout: "One sentence: what the stratum username must be, and how miners get paid.",
+  software: "simplepool",
+  contact: "you@example.com"
+}, null, 2);
+</script>
+</body>
+</html>
