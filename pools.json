@@ -34,6 +34,22 @@
       "payout": "Coinbase pays the pool; miners accrue and are paid out in Thunder. The stratum username is your Thunder address.",
       "software": "simplepool",
       "contact": null
+    },
+    {
+      "name": "ecashpool.tech",
+      "operator": "Wired4ncer",
+      "chain": "alphanet",
+      "mode": "proportional",
+      "fee_bps": 0,
+      "coinbase_tag": "/ecashpool-alpha/",
+      "stratum_url": "stratum+tcp://stratum.ecashpool.tech:3334",
+      "dashboard_url": "https://ecashpool.tech",
+      "status_url": "https://ecashpool.tech/api/pool/health",
+      "operator_address": "bc1qfu9ztq7awymdvwurrrct0vnqdg37md8nw9m0v7",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your BTC address; the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds.",
+      "software": "simplepool",
+      "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
     }
   ]
 }
