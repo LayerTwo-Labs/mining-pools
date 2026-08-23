@@ -7,6 +7,9 @@ block explorer.
 * `index.html` — a static page that renders `pools.json` in the browser. No build
   step, no dependencies, no network calls beyond fetching `pools.json` from the
   same origin.
+* `pools-v2.json` — the same pools expressed in mempool's pool-attribution
+  format, for feeding a mempool instance. **Generated from `pools.json`; do not
+  edit it as the primary source.**
 
 ## Listing your pool
 
@@ -70,6 +73,33 @@ On simplepool specifically, the installer restores its answers from
 silently reverted on the next upgrade. If those two files disagree, fix the
 installer answer as well — otherwise the tag you list here will stop being true
 the next time the pool is updated.
+
+## `pools-v2.json` (mempool format)
+
+[mempool](https://github.com/mempool/mining-pools) attributes blocks from its own
+list, `pools-v2.json`. `pools-v2.json` here is that upstream file, verbatim,
+with this repo's pools appended:
+
+```json
+{
+  "id": 1001,
+  "name": "your-pool",
+  "addresses": ["bc1q..."],
+  "tags": ["/yourpool/"],
+  "link": "https://pool.example.com"
+}
+```
+
+Mapping from `pools.json`: `name` → `name`, `coinbase_tag` → the one entry in
+`tags`, `dashboard_url` → `link`. `addresses` holds whatever address of the pool
+actually lands in the coinbase — `pool_btc_address` for a pooled payout,
+`operator_address` for a solo pool that still takes a fee cut, and `[]` for a
+zero-fee non-custodial pool, which nothing but the tag can identify.
+
+Our ids start at **1001** on purpose. Upstream ids are sequential from 1 and
+upstream is still growing; keeping our block well clear of it means re-syncing is
+"replace everything below id 1000 with the new upstream file" and never a
+collision on an id two different pools claim.
 
 ## House rules
 
