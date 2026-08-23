@@ -7,9 +7,9 @@ block explorer.
 * `index.html` — a static page that renders `pools.json` in the browser. No build
   step, no dependencies, no network calls beyond fetching `pools.json` from the
   same origin.
-* `pools-v2.json` — the same pools in mempool's pool-attribution format, for
-  feeding a mempool instance. **Derived from `pools.json`; edit that one, then
-  mirror the change here.**
+* `pools-v2.json` — the same pools expressed in mempool's pool-attribution
+  format, for feeding a mempool instance. **Generated from `pools.json`; do not
+  edit it as the primary source.**
 
 ## Listing your pool
 
@@ -76,9 +76,9 @@ the next time the pool is updated.
 
 ## `pools-v2.json` (mempool format)
 
-[mempool](https://github.com/mempool/mining-pools) attributes blocks from its
-own list, `pools-v2.json`, in a different shape from `pools.json`. The copy here
-is that upstream file verbatim, with this repo's pools appended:
+[mempool](https://github.com/mempool/mining-pools) attributes blocks from its own
+list, `pools-v2.json`. `pools-v2.json` here is that upstream file, verbatim,
+with this repo's pools appended:
 
 ```json
 {
@@ -90,16 +90,16 @@ is that upstream file verbatim, with this repo's pools appended:
 }
 ```
 
-The mapping is `name` → `name`, `coinbase_tag` → the single entry in `tags`, and
-`dashboard_url` → `link`. `addresses` holds whichever address of yours actually
-lands in the coinbase: `pool_btc_address` for a pooled payout,
+Mapping from `pools.json`: `name` → `name`, `coinbase_tag` → the one entry in
+`tags`, `dashboard_url` → `link`. `addresses` holds whatever address of the pool
+actually lands in the coinbase — `pool_btc_address` for a pooled payout,
 `operator_address` for a solo pool that still takes a fee cut, and `[]` for a
-zero-fee non-custodial pool, where nothing but the tag can identify you.
+zero-fee non-custodial pool, which nothing but the tag can identify.
 
-Our ids start at **1001** on purpose. Upstream ids run sequentially from 1 and
-upstream is still growing, so keeping our block clear of it makes a refresh
-"replace everything below id 1000 with the new upstream file" instead of a
-merge conflict over an id two different pools both claim.
+Our ids start at **1001** on purpose. Upstream ids are sequential from 1 and
+upstream is still growing; keeping our block well clear of it means re-syncing is
+"replace everything below id 1000 with the new upstream file" and never a
+collision on an id two different pools claim.
 
 ## House rules
 
