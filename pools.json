@@ -1,6 +1,6 @@
 {
   "$comment": "The source of truth for pools.ecash.com and for block-explorer attribution. Add your pool by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present. coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you.",
-  "updated": "2026-08-22",
+  "updated": "2026-08-23",
   "schema_version": 1,
   "pools": [
     {
@@ -41,7 +41,7 @@
       "chain": "alphanet",
       "mode": "proportional",
       "fee_bps": 0,
-      "coinbase_tag": "/ecashpool-alpha/",
+      "coinbase_tag": "/ecashpool.tech/",
       "stratum_url": "stratum+tcp://stratum.ecashpool.tech:3334",
       "dashboard_url": "https://ecashpool.tech",
       "status_url": "https://ecashpool.tech/api/pool/health",
