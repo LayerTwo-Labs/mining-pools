@@ -1866,5 +1866,16 @@
       "/ecashpool-alpha/"
     ],
     "link": "https://ecashpool.tech"
+  },
+  {
+    "id": 1004,
+    "name": "eCashPool",
+    "addresses": [
+      "bc1qcpssv3eputpx2nmzvsntlrk3jgyyvqr9h5s5d5"
+    ],
+    "tags": [
+      "/ecashpool.io/"
+    ],
+    "link": "https://ecashpool.io"
   }
 ]
