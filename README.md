@@ -1,7 +1,7 @@
 # eCash forknet mining pools
 
-The list behind **pools.ecash.com**, and the source of pool attribution for the
-block explorer.
+The list behind **pool.drivechain.info**, and the source of pool attribution for
+the block explorer.
 
 * `pools.json` — the data. One object per pool. **This is the file you edit.**
 * `index.html` — a static page that renders `pools.json` in the browser. No build
@@ -104,8 +104,12 @@ with this repo's pools appended:
 Mapping from `pools.json`: `name` → `name`, `coinbase_tag` → the one entry in
 `tags`, `dashboard_url` → `link`. `addresses` holds whatever address of the pool
 actually lands in the coinbase — `pool_btc_address` for a pooled payout,
-`operator_address` for a solo pool that still takes a fee cut, and `[]` for a
+`operator_address` for a solo pool that still takes a fee cut, and `[]` only for a
 zero-fee non-custodial pool, which nothing but the tag can identify.
+
+That last case tracks the fee, so it is not settled once. A pool that starts
+charging one begins paying itself in the coinbase, and its `addresses` stops
+being empty — revisit the entry whenever `fee_bps` changes.
 
 Our ids start at **1001** on purpose. Upstream ids are sequential from 1 and
 upstream is still growing; keeping our block well clear of it means re-syncing is
