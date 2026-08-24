@@ -9,17 +9,20 @@
   :root{
     --bg:#fbfaf8; --panel:#fff; --ink:#17181c; --muted:#5f6570; --line:#e4e2dd;
     --accent:#8a5a2b; --accent-soft:#f4ece3; --code:#f3f1ec; --shadow:0 1px 2px rgba(0,0,0,.05);
+    --logo-tile:#fff;
   }
   :root:not([data-theme="light"]) { }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
       --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
+      --logo-tile:#eef0f4;
     }
   }
   :root[data-theme="dark"]{
     --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
     --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
+    --logo-tile:#eef0f4;
   }
   *{box-sizing:border-box}
   body{
@@ -41,7 +44,19 @@
     background:var(--panel);border:1px solid var(--line);border-radius:12px;
     padding:22px 24px;margin-bottom:18px;box-shadow:var(--shadow);
   }
-  .pool-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:16px}
+  .pool-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+  .pool-logo{
+    position:relative;flex:none;width:56px;height:56px;border-radius:10px;
+    background:var(--logo-tile);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  /* Tile is light in both themes, so the monogram needs a fixed dark ink. */
+  .pool-logo .monogram{font-size:22px;font-weight:650;color:#6b7280;letter-spacing:-.02em}
+  .pool-logo img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;padding:7px;background:var(--logo-tile);
+  }
+  .pool-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;flex:1;min-width:0}
   .pool-name{font-size:20px;font-weight:650;letter-spacing:-.01em}
   .tag{
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;
@@ -132,6 +147,7 @@
       <tr><td>pool_btc_address</td><td>optional</td><td>Where the coinbase pays in <code>pps-classic</code>. <code>null</code> for solo.</td></tr>
       <tr><td>payout</td><td>optional</td><td>One sentence a miner needs before connecting.</td></tr>
       <tr><td>software</td><td>optional</td><td>e.g. <code>simplepool</code>.</td></tr>
+      <tr><td>logo</td><td>optional</td><td>Path to a logo committed under <code>mining-pool-logos/</code>. SVG preferred, roughly square. Without one the card shows a letter monogram.</td></tr>
       <tr><td>contact</td><td>optional</td><td>Somewhere to reach you if the pool misbehaves.</td></tr>
     </tbody>
   </table>
@@ -147,6 +163,7 @@
 
 <script>
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const initial = s => esc(String(s || '?').trim().charAt(0).toUpperCase());
 const row = (k, v, mono) => v == null || v === ''
   ? '' : `<dt>${esc(k)}</dt><dd class="${mono?'mono':''}">${esc(v)}</dd>`;
 
@@ -154,12 +171,18 @@ fetch('pools.json', {cache:'no-cache'}).then(r => r.json()).then(d => {
   document.getElementById('updated').textContent = 'updated ' + (d.updated || 'unknown');
   document.getElementById('pools').innerHTML = (d.pools || []).map(p => `
     <div class="pool">
-      <div class="pool-head">
-        <span class="pool-name">${esc(p.name)}</span>
-        <span class="tag">${esc(p.coinbase_tag)}</span>
-        <span class="chip">${esc(p.chain)}</span>
-        <span class="chip">${esc(p.mode)}</span>
-        <span class="chip">${(p.fee_bps/100)}% fee</span>
+      <div class="pool-top">
+        <span class="pool-logo">
+          <span class="monogram">${initial(p.name)}</span>
+          ${p.logo ? `<img src="${esc(p.logo)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+        </span>
+        <div class="pool-head">
+          <span class="pool-name">${esc(p.name)}</span>
+          <span class="tag">${esc(p.coinbase_tag)}</span>
+          <span class="chip">${esc(p.chain)}</span>
+          <span class="chip">${esc(p.mode)}</span>
+          <span class="chip">${(p.fee_bps/100)}% fee</span>
+        </div>
       </div>
       <code class="connect">${esc(p.stratum_url)}</code>
       <dl class="facts">
@@ -191,6 +214,7 @@ document.getElementById('template').textContent = JSON.stringify({
   pool_btc_address: "bc1q...",
   payout: "One sentence: what the stratum username must be, and how miners get paid.",
   software: "simplepool",
+  logo: "mining-pool-logos/yourpool.svg",
   contact: "you@example.com"
 }, null, 2);
 </script>
