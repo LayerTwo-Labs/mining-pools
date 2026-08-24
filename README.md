@@ -10,6 +10,8 @@ block explorer.
 * `pools-v2.json` — the same pools expressed in mempool's pool-attribution
   format, for feeding a mempool instance. **Generated from `pools.json`; do not
   edit it as the primary source.**
+* `mining-pool-logos/` — one logo per pool, referenced by the optional `logo`
+  field. A pool without one renders a letter monogram instead.
 
 ## Listing your pool
 
@@ -32,6 +34,7 @@ file at load time.
   "pool_btc_address": "bc1q...",
   "payout": "One sentence: what the stratum username must be, and how miners get paid.",
   "software": "simplepool",
+  "logo": "mining-pool-logos/yourpool.svg",
   "contact": "you@example.com"
 }
 ```
@@ -52,7 +55,15 @@ file at load time.
 ### Optional
 
 `dashboard_url`, `status_url`, `pool_btc_address` (`null` for solo), `payout`,
-`software`, `contact`.
+`software`, `contact`, `logo`.
+
+`logo` is a path to a file committed under `mining-pool-logos/`. SVG is
+preferred and it should be roughly square — the page draws it into a 56px tile
+with `object-fit: contain`, so any aspect ratio fits without distortion. The
+tile is deliberately light in both colour themes, because logo files carry their
+own fixed colours and dark ink would disappear against the dark panel. Leave the
+field out and the card falls back to a monogram of the pool's first letter; the
+same fallback covers a `logo` path that fails to load.
 
 ## Why `coinbase_tag` is the field to get right
 

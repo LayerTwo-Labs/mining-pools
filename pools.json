@@ -17,6 +17,7 @@
       "pool_btc_address": null,
       "payout": "Coinbase pays the miner directly. The stratum username is your BTC address.",
       "software": "simplepool",
+      "logo": "mining-pool-logos/bip300xyz.svg",
       "contact": null
     },
     {
@@ -33,6 +34,7 @@
       "pool_btc_address": "bc1q8kkhykqkv2wpc88rz74hzu8ezch8c7ulllte5f",
       "payout": "Coinbase pays the pool; miners accrue and are paid out in Thunder. The stratum username is your Thunder address.",
       "software": "simplepool",
+      "logo": "mining-pool-logos/avonpool.svg",
       "contact": null
     },
     {
