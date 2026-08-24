@@ -1861,7 +1861,9 @@
   {
     "id": 1003,
     "name": "ecashpool.tech",
-    "addresses": [],
+    "addresses": [
+      "bc1qfu9ztq7awymdvwurrrct0vnqdg37md8nw9m0v7"
+    ],
     "tags": [
       "/ecashpool.tech/"
     ],
