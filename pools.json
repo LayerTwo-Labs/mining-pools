@@ -42,7 +42,7 @@
       "operator": "Wired4ncer",
       "chain": "alphanet",
       "mode": "proportional",
-      "fee_bps": 0,
+      "fee_bps": 25,
       "coinbase_tag": "/ecashpool.tech/",
       "stratum_url": "stratum+tcp://stratum.ecashpool.tech:3334",
       "dashboard_url": "https://ecashpool.tech",
