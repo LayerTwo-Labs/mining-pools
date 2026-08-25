@@ -1,6 +1,6 @@
 {
   "$comment": "The source of truth for pool.drivechain.info and for block-explorer attribution. Add your pool by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present. coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you.",
-  "updated": "2026-08-23",
+  "updated": "2026-08-25",
   "schema_version": 1,
   "pools": [
     {
@@ -68,6 +68,23 @@
       "payout": "Coinbase pays the pool; miners accrue and are paid out in Thunder. The stratum username is your Thunder address.",
       "software": "simplepool",
       "contact": null
+    },
+    {
+      "name": "eCash Pool",
+      "operator": "bitlewis",
+      "chain": "alphanet",
+      "mode": "proportional",
+      "fee_bps": 60,
+      "coinbase_tag": "ePool",
+      "stratum_url": "stratum+tcp://mine.ecash.epool.cash:3334",
+      "dashboard_url": "https://ecash.epool.cash",
+      "status_url": "https://ecash.epool.cash/api/pool",
+      "operator_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your BTC address; rewards are split proportionally across the VIBES window and paid directly in the block coinbase when possible.",
+      "software": "DATUM / Blocktron",
+      "logo": "mining-pool-logos/epool-cash.svg",
+      "contact": "https://github.com/bitlewis"
     }
   ]
 }
