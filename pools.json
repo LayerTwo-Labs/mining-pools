@@ -51,6 +51,7 @@
       "pool_btc_address": null,
       "payout": "The stratum username is your BTC address; the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds.",
       "software": "simplepool",
+      "logo": "mining-pool-logos/ecashpool.svg",
       "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
     },
     {
