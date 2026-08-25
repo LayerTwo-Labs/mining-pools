@@ -1879,5 +1879,16 @@
       "/ecashpool.io/"
     ],
     "link": "https://ecashpool.io"
+  },
+  {
+    "id": 1005,
+    "name": "eCash Pool",
+    "addresses": [
+      "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq"
+    ],
+    "tags": [
+      "ePool"
+    ],
+    "link": "https://ecash.epool.cash"
   }
 ]
