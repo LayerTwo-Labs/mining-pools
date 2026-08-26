@@ -84,7 +84,7 @@
       "pool_btc_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
       "payout": "The stratum username is your BTC address; rewards are split proportionally across the VIBES window and paid directly in the block coinbase.",
       "software": "DATUM / Blocktfabric",
-      "logo": "mining-pool-logos/epool-cash.svg",
+      "logo": "mining-pool-logos/ePool.png",
       "contact": "https://t.me/+don8J6skqi02OTZh"
     }
   ]
