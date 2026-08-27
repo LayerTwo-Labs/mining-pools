@@ -71,21 +71,21 @@
       "contact": null
     },
     {
-      "name": "eCash Pool",
+      "name": "ePool",
       "operator": "bitlewis",
       "chain": "alphanet",
-      "mode": "proportional",
+      "mode": "vibes",
       "fee_bps": 60,
       "coinbase_tag": "ePool",
       "stratum_url": "stratum+tcp://mine.ecash.epool.cash:3334",
       "dashboard_url": "https://ecash.epool.cash",
       "status_url": "https://ecash.epool.cash/api/pool",
       "operator_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
-      "pool_btc_address": null,
-      "payout": "The stratum username is your BTC address; rewards are split proportionally across the VIBES window and paid directly in the block coinbase when possible.",
-      "software": "DATUM / Blocktron",
-      "logo": "mining-pool-logos/epool-cash.svg",
-      "contact": "https://github.com/bitlewis"
+      "pool_btc_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
+      "payout": "The stratum username is your BTC address; rewards are split proportionally across the VIBES window and paid directly in the block coinbase.",
+      "software": "DATUM / Blocktfabric",
+      "logo": "mining-pool-logos/ePool.png",
+      "contact": "https://t.me/+don8J6skqi02OTZh"
     }
   ]
 }
