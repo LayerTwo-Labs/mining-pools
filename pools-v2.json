@@ -1890,5 +1890,16 @@
       "ePool"
     ],
     "link": "https://ecash.epool.cash"
+  },
+  {
+    "id": 1006,
+    "name": "FreeBank",
+    "addresses": [
+      "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm"
+    ],
+    "tags": [
+      "/ecxfreebank.com/"
+    ],
+    "link": "https://ecxfreebank.com"
   }
 ]
