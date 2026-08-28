@@ -69,6 +69,10 @@
     padding:12px 14px;margin:0 0 16px;overflow-x:auto;white-space:nowrap;
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;
   }
+  .connect.none{
+    background:none;border-style:dashed;color:var(--muted);
+    font-family:inherit;font-size:14px;white-space:normal;
+  }
   dl.facts{display:grid;grid-template-columns:max-content 1fr;gap:6px 20px;margin:0}
   dl.facts dt{color:var(--muted);font-size:13px;white-space:nowrap}
   dl.facts dd{margin:0;font-size:14px;min-width:0;overflow-wrap:anywhere}
@@ -140,7 +144,7 @@
       <tr><td>mode</td><td class="req">required</td><td><code>solo</code> or <code>pps-classic</code>. Determines what the stratum username must be.</td></tr>
       <tr><td>fee_bps</td><td class="req">required</td><td>Fee in basis points. <code>100</code> = 1%.</td></tr>
       <tr><td>coinbase_tag</td><td class="req">required</td><td>Exactly as it appears in your coinbase, slashes included.</td></tr>
-      <tr><td>stratum_url</td><td class="req">required</td><td>Full <code>stratum+tcp://host:port</code> a miner can paste.</td></tr>
+      <tr><td>stratum_url</td><td class="req">required</td><td>Full <code>stratum+tcp://host:port</code> a miner can paste. <code>null</code> only if the pool takes no outside hashrate.</td></tr>
       <tr><td>operator_address</td><td class="req">required</td><td>Address taking the fee cut.</td></tr>
       <tr><td>dashboard_url</td><td>optional</td><td>Public stats page, if you have one.</td></tr>
       <tr><td>status_url</td><td>optional</td><td>Machine-readable status, e.g. <code>/api/status</code>.</td></tr>
@@ -184,7 +188,9 @@ fetch('pools.json', {cache:'no-cache'}).then(r => r.json()).then(d => {
           <span class="chip">${(p.fee_bps/100)}% fee</span>
         </div>
       </div>
-      <code class="connect">${esc(p.stratum_url)}</code>
+      ${p.stratum_url
+        ? `<code class="connect">${esc(p.stratum_url)}</code>`
+        : `<p class="connect none">No public stratum — this pool does not take outside hashrate.</p>`}
       <dl class="facts">
         ${row('Operator', p.operator)}
         ${row('Fee address', p.operator_address, true)}

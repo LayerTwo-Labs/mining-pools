@@ -49,7 +49,7 @@ file at load time.
 | `mode` | `solo` or `pps-classic`. Decides what the stratum username must be. |
 | `fee_bps` | Basis points. `100` = 1%. |
 | `coinbase_tag` | Exactly as it appears in your coinbase, slashes included. |
-| `stratum_url` | Full `stratum+tcp://host:port` a miner can paste. |
+| `stratum_url` | Full `stratum+tcp://host:port` a miner can paste. `null` only if the pool takes no outside hashrate, such as a solo operator self-mining. |
 | `operator_address` | The address taking the fee cut. |
 
 ### Optional
