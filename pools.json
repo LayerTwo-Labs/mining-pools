@@ -1,6 +1,6 @@
 {
   "$comment": "The source of truth for pool.drivechain.info and for block-explorer attribution. Add your pool by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present. coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you.",
-  "updated": "2026-08-25",
+  "updated": "2026-08-27",
   "schema_version": 1,
   "pools": [
     {
@@ -86,6 +86,22 @@
       "software": "DATUM / Blocktfabric",
       "logo": "mining-pool-logos/ePool.png",
       "contact": "https://t.me/+don8J6skqi02OTZh"
+    },
+    {
+      "name": "FreeBank",
+      "operator": "mbdrivechains",
+      "chain": "alphanet",
+      "mode": "solo",
+      "fee_bps": 0,
+      "coinbase_tag": "/ecxfreebank.com/",
+      "stratum_url": null,
+      "dashboard_url": "https://ecxfreebank.com",
+      "status_url": null,
+      "operator_address": "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm",
+      "pool_btc_address": null,
+      "payout": "Solo self-mining by the FreeBank sidechain operator (BIP300 slot 130). The coinbase pays the operator address directly; no public hashpower is solicited.",
+      "software": "simplepool",
+      "contact": "https://github.com/mbdrivechains/freebank"
     }
   ]
 }
