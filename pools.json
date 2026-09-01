@@ -94,6 +94,7 @@
       "mode": "solo",
       "fee_bps": 0,
       "coinbase_tag": "/ecxfreebank.com/",
+   "logo": "mining-pool-logos/freebank.svg",
       "stratum_url": null,
       "dashboard_url": "https://ecxfreebank.com",
       "status_url": null,
