@@ -3,5 +3,40 @@
   "network": "betanet",
   "updated": "2026-09-16",
   "schema_version": 1,
-  "pools": []
+  "pools": [
+    {
+      "name": "bip300.xyz",
+      "operator": "bip300.xyz",
+      "chain": "betanet",
+      "mode": "pplns",
+      "fee_bps": 100,
+      "coinbase_tag": "/bip300xyz/",
+      "stratum_url": "stratum+tcp://stratum.beta.bip300.xyz:3334",
+      "dashboard_url": "https://pool.beta.bip300.xyz",
+      "status_url": "https://pool.beta.bip300.xyz/api/status",
+      "operator_address": "bc1qskyznnpqpyp58ynlh036p3jt69ldptlnqhstcd",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your BTC address; the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/bip300xyz.svg",
+      "contact": null
+    },
+    {
+      "name": "ECPool (ecpool.tech)",
+      "operator": "Wired4ncer",
+      "chain": "betanet",
+      "mode": "proportional",
+      "fee_bps": 50,
+      "coinbase_tag": "/ecpool.tech/",
+      "stratum_url": "stratum+tcp://mining.ecpool.tech:3334",
+      "dashboard_url": "https://ecpool.tech",
+      "status_url": "https://ecpool.tech/api/pool/health",
+      "operator_address": "bc1p8f2nswh6pa6aedye80wkak74z0g40gkfdds8wcsaznm550altd4qptz0dk",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your address (bc1q or bc1p); the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds. Port 3336 is solo mode, 3335 is for rented hashrate.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/ecpool.png",
+      "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
+    }
+  ]
 }

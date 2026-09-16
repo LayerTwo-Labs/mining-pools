@@ -1875,5 +1875,27 @@
       "/DMND/"
     ],
     "link": "https://www.dmnd.work/"
+  },
+  {
+    "id": 2001,
+    "name": "bip300.xyz",
+    "addresses": [
+      "bc1qskyznnpqpyp58ynlh036p3jt69ldptlnqhstcd"
+    ],
+    "tags": [
+      "/bip300xyz/"
+    ],
+    "link": "https://pool.beta.bip300.xyz"
+  },
+  {
+    "id": 2002,
+    "name": "ECPool (ecpool.tech)",
+    "addresses": [
+      "bc1p8f2nswh6pa6aedye80wkak74z0g40gkfdds8wcsaznm550altd4qptz0dk"
+    ],
+    "tags": [
+      "/ecpool.tech/"
+    ],
+    "link": "https://ecpool.tech"
   }
 ]
