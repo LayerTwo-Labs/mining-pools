@@ -4,8 +4,8 @@ The list behind **pool.drivechain.info**, and the source of pool attribution for
 the block explorer.
 
 Three forknets exist at once right now — alphanet is being retired, betanet
-opens on 19 September 2026, and mainnet follows about two weeks later. Each one
-has its own folder, so a forknet can be added or deleted without touching the
+opens on 19 September 2026, and mainnet opens on 31 October 2026. Each one has
+its own folder, so a forknet can be added or deleted without touching the
 others. See [The network lifecycle](#the-network-lifecycle) for the schedule and
 the exact steps.
 
@@ -207,11 +207,12 @@ on its sunset date with nobody editing anything that morning.** `status:
 | --- | --- | --- |
 | alphanet | already up | **24 September 2026**, five days after betanet |
 | betanet | **19 September 2026** | when mainnet is up |
-| mainnet | early October 2026, date not fixed | — |
+| mainnet | **31 October 2026** | — |
 
-Alphanet and betanet both go away once mainnet is up. Nothing needs doing on
-19 or 24 September: those two dates take care of themselves. The steps below are
-for the days you actually change something.
+Alphanet and betanet both go away once mainnet is up, which makes 31 October
+the day the repo drops back to a single forknet. Nothing needs doing on 19 or
+24 September: those dates take care of themselves. The steps below are for the
+days you actually change something.
 
 ### Launching a forknet
 
@@ -220,8 +221,9 @@ for the days you actually change something.
    to it, and move `default_network` so it is the tab that opens first.
 3. `python3 tools/build.py` and commit.
 
-For mainnet specifically, step 1 also means replacing the `launch_note` with a
-real `launch` date.
+All three dates are already set, so there is nothing to do for betanet on
+19 September or mainnet on 31 October beyond step 2 — and step 2 only when you
+want the explorer and the default tab to follow.
 
 ### Retiring a forknet
 

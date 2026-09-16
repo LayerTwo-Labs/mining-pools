@@ -2,10 +2,8 @@
   "$comment": "Which forknets exist, and where each one is in its life. index.html reads this to build the tab strip; tools/build.py reads it to decide what to generate. A network's displayed state is derived from its dates, so betanet turns LIVE on its launch date and alphanet turns retired on its sunset date without anyone editing this file that morning. See 'The network lifecycle' in README.md before changing root_network.",
   "updated": "2026-09-16",
   "schema_version": 1,
-
   "root_network": "alphanet",
   "default_network": "alphanet",
-
   "networks": [
     {
       "id": "alphanet",
@@ -33,13 +31,12 @@
       "id": "mainnet",
       "name": "Mainnet",
       "status": "upcoming",
-      "summary": "The one that stays. Roughly two weeks after betanet — early October 2026.",
-      "launch": null,
-      "launch_note": "Expected early October 2026, about two weeks after betanet.",
+      "summary": "The one that stays. Opens 31 October 2026; alphanet and betanet are both gone once it is up.",
+      "launch": "2026-10-31",
       "sunset": null,
       "successor": null,
       "mempool_id_base": 3001,
-      "notice": "Not open yet, and the launch date is not fixed. You can still open a listing PR — nothing goes live until the date is set here."
+      "notice": "Listings are open now. Open your pull request before launch day and your pool is on this page the moment mainnet opens."
     }
   ]
 }
