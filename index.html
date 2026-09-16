@@ -4,25 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>eCash forknet mining pools</title>
-<meta name="description" content="Public mining pools on the eCash forknets — how to connect, and how to list your own.">
+<meta name="description" content="Public mining pools on the eCash forknets — alphanet, betanet and mainnet — how to connect, and how to list your own.">
 <style>
   :root{
     --bg:#fbfaf8; --panel:#fff; --ink:#17181c; --muted:#5f6570; --line:#e4e2dd;
     --accent:#8a5a2b; --accent-soft:#f4ece3; --code:#f3f1ec; --shadow:0 1px 2px rgba(0,0,0,.05);
     --logo-tile:#fff;
+    --live:#2f7d4f; --live-soft:#e8f3ec;
+    --warn:#a4562a; --warn-soft:#fbeee4;
   }
-  :root:not([data-theme="light"]) { }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
       --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
       --logo-tile:#eef0f4;
+      --live:#6dc38d; --live-soft:#16241b;
+      --warn:#e0975f; --warn-soft:#2a1d12;
     }
   }
   :root[data-theme="dark"]{
     --bg:#131417; --panel:#191b1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2b2e34;
     --accent:#d9a066; --accent-soft:#241d15; --code:#202329; --shadow:0 1px 2px rgba(0,0,0,.4);
     --logo-tile:#eef0f4;
+    --live:#6dc38d; --live-soft:#16241b;
+    --warn:#e0975f; --warn-soft:#2a1d12;
   }
   *{box-sizing:border-box}
   body{
@@ -30,8 +35,8 @@
     font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:980px;margin:0 auto;padding:48px 20px 72px}
-  header.top{margin-bottom:40px}
+  .wrap{max-width:980px;margin:0 auto;padding:48px 16px 72px}
+  header.top{margin-bottom:32px}
   h1{font-size:clamp(28px,4.5vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
   .lede{color:var(--muted);font-size:17px;max-width:62ch;margin:0}
   h2{font-size:20px;margin:48px 0 8px;letter-spacing:-.01em}
@@ -40,10 +45,46 @@
   code{background:var(--code);padding:.15em .4em;border-radius:4px}
   a{color:var(--accent)}
 
+  /* --- network tabs ------------------------------------------------------ */
+  .nets{
+    display:flex;gap:8px;margin:0 0 24px;padding-bottom:4px;
+    overflow-x:auto;scrollbar-width:none;
+  }
+  .nets::-webkit-scrollbar{display:none}
+  .net{
+    flex:none;display:block;text-align:left;cursor:pointer;
+    background:var(--panel);color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 16px;font:inherit;line-height:1.3;
+    box-shadow:var(--shadow);
+  }
+  .net:hover{border-color:var(--accent)}
+  .net[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+  .net .net-name{display:block;font-weight:650;font-size:15px;letter-spacing:-.01em}
+  .net .net-state{
+    display:block;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--muted);margin-top:2px;white-space:nowrap;
+  }
+  .net[data-state="live"] .net-state{color:var(--live);font-weight:600}
+  .net[data-state="sunsetting"] .net-state{color:var(--warn);font-weight:600}
+  .net[data-state="retired"]{opacity:.55}
+
+  .banner{
+    border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:16px 20px;margin:0 0 24px;font-size:14.5px;
+    background:var(--panel);
+  }
+  .banner.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+  .banner.info{border-left-color:var(--accent);background:var(--accent-soft)}
+  .banner .banner-when{display:block;font-weight:650;margin-bottom:4px}
+  .banner p{margin:0;color:var(--muted)}
+  .net-summary{color:var(--muted);margin:0 0 20px;max-width:64ch}
+
+  /* --- pool cards -------------------------------------------------------- */
   .pool{
     background:var(--panel);border:1px solid var(--line);border-radius:12px;
     padding:22px 24px;margin-bottom:18px;box-shadow:var(--shadow);
   }
+  .retired .pool{opacity:.6}
   .pool-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
   .pool-logo{
     position:relative;flex:none;width:56px;height:56px;border-radius:10px;
@@ -78,6 +119,11 @@
   dl.facts dd{margin:0;font-size:14px;min-width:0;overflow-wrap:anywhere}
   dl.facts dd.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
   .payout{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  .empty{
+    border:1px dashed var(--line);border-radius:12px;padding:28px 24px;
+    color:var(--muted);text-align:center;
+  }
+  .empty strong{display:block;color:var(--ink);font-size:16px;margin-bottom:6px}
 
   .callout{
     background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
@@ -114,6 +160,10 @@
     </p>
   </header>
 
+  <div class="nets" id="nets" role="tablist" aria-label="Forknet"></div>
+  <div id="banner"></div>
+  <p class="net-summary" id="summary"></p>
+
   <h2>Pools</h2>
   <p class="note">Point your miner at the stratum URL. Read the payout line first — what you put in the
      username field differs by mode.</p>
@@ -122,8 +172,9 @@
   <h2>List your pool here</h2>
   <p class="note">Open a pull request against
      <a href="https://github.com/LayerTwo-Labs/mining-pools">LayerTwo-Labs/mining-pools</a>
-     adding one object to the <code>pools</code> array in <code>pools.json</code>. That file is also what
-     feeds pool attribution in the block explorer, so the fields below are not decoration.</p>
+     adding one object to the <code>pools</code> array in <code id="poolsfile">pools.json</code>, then run
+     <code>python3 tools/build.py</code> and commit what it writes. That data is also what feeds pool
+     attribution in the block explorer, so the fields below are not decoration.</p>
 
   <div class="callout">
     <strong>Why <code>coinbase_tag</code> matters most.</strong>
@@ -140,7 +191,7 @@
     <tbody>
       <tr><td>name</td><td class="req">required</td><td>Short display name for this page.</td></tr>
       <tr><td>operator</td><td class="req">required</td><td>Who runs it — an org, handle or domain.</td></tr>
-      <tr><td>chain</td><td class="req">required</td><td>Which forknet, e.g. <code>alphanet</code>. Note bitcoind itself reports <code>main</code> on every one of these: they are all mainnet forks.</td></tr>
+      <tr><td>chain</td><td class="req">required</td><td>Which forknet. Must match the folder the file is in. Note bitcoind itself reports <code>main</code> on every one of these: they are all mainnet forks.</td></tr>
       <tr><td>mode</td><td class="req">required</td><td><code>solo</code> or <code>pps-classic</code>. Determines what the stratum username must be.</td></tr>
       <tr><td>fee_bps</td><td class="req">required</td><td>Fee in basis points. <code>100</code> = 1%.</td></tr>
       <tr><td>coinbase_tag</td><td class="req">required</td><td>Exactly as it appears in your coinbase, slashes included.</td></tr>
@@ -149,18 +200,20 @@
       <tr><td>dashboard_url</td><td>optional</td><td>Public stats page, if you have one.</td></tr>
       <tr><td>status_url</td><td>optional</td><td>Machine-readable status, e.g. <code>/api/status</code>.</td></tr>
       <tr><td>pool_btc_address</td><td>optional</td><td>Where the coinbase pays in <code>pps-classic</code>. <code>null</code> for solo.</td></tr>
+      <tr><td>coinbase_addresses</td><td>optional</td><td>Override for what the explorer attributes to you, when neither rule above is right — a zero-fee operator mining for itself, say.</td></tr>
       <tr><td>payout</td><td>optional</td><td>One sentence a miner needs before connecting.</td></tr>
       <tr><td>software</td><td>optional</td><td>e.g. <code>simplepool</code>.</td></tr>
-      <tr><td>logo</td><td>optional</td><td>Path to a logo committed under <code>mining-pool-logos/</code>. SVG preferred, roughly square. Without one the card shows a letter monogram.</td></tr>
+      <tr><td>logo</td><td>optional</td><td>Path to a logo committed under <code>mining-pool-logos/</code>, shared by every forknet. SVG preferred, roughly square. Without one the card shows a letter monogram.</td></tr>
       <tr><td>contact</td><td>optional</td><td>Somewhere to reach you if the pool misbehaves.</td></tr>
     </tbody>
   </table>
 
-  <p class="note">Keep the array sorted however the diff is cleanest — order on this page follows the file.
-     A PR that changes another operator's entry will not be merged without their sign-off.</p>
+  <p class="note">Append rather than reordering — mempool ids are assigned by position, so moving an entry
+     re-points attribution for everyone below it. A PR that changes another operator's entry will not be
+     merged without their sign-off.</p>
 
   <footer>
-    Generated from <code>pools.json</code> · <span id="updated"></span> ·
+    <span id="updated"></span> ·
     <a href="https://github.com/LayerTwo-Labs/mining-pools">source</a>
   </footer>
 </div>
@@ -171,9 +224,64 @@ const initial = s => esc(String(s || '?').trim().charAt(0).toUpperCase());
 const row = (k, v, mono) => v == null || v === ''
   ? '' : `<dt>${esc(k)}</dt><dd class="${mono?'mono':''}">${esc(v)}</dd>`;
 
-fetch('pools.json', {cache:'no-cache'}).then(r => r.json()).then(d => {
-  document.getElementById('updated').textContent = 'updated ' + (d.updated || 'unknown');
-  document.getElementById('pools').innerHTML = (d.pools || []).map(p => `
+// Today as YYYY-MM-DD in the reader's own timezone. ISO dates compare as strings,
+// so every date test below is a plain <, no Date arithmetic and no DST edge.
+const now = new Date();
+const TODAY = [now.getFullYear(), now.getMonth() + 1, now.getDate()]
+  .map((n, i) => i ? String(n).padStart(2, '0') : n).join('-');
+
+const DAY = 864e5;
+const parse = iso => Date.UTC(+iso.slice(0,4), +iso.slice(5,7) - 1, +iso.slice(8,10));
+const daysBetween = (a, b) => Math.round((parse(b) - parse(a)) / DAY);
+const longDate = iso => new Date(parse(iso)).toLocaleDateString(undefined,
+  {weekday:'long', day:'numeric', month:'long', year:'numeric', timeZone:'UTC'});
+const shortDate = iso => new Date(parse(iso)).toLocaleDateString(undefined,
+  {day:'numeric', month:'short', timeZone:'UTC'});
+const inDays = n => n === 0 ? 'today' : n === 1 ? 'tomorrow' : `in ${n} days`;
+
+// A network's state is read off its dates, not off a flag someone has to remember
+// to flip: betanet turns live on its launch date and alphanet retires on its
+// sunset date on their own. `status: "retired"` is the one manual override, for
+// pulling a forknet early.
+function stateOf(net) {
+  if (net.status === 'retired') return 'retired';
+  if (net.launch ? TODAY < net.launch : net.status === 'upcoming') return 'upcoming';
+  if (net.sunset && TODAY > net.sunset) return 'retired';
+  if (net.sunset) return 'sunsetting';
+  return 'live';
+}
+
+function tabState(net, state) {
+  if (state === 'live') return 'live';
+  if (state === 'retired') return 'retired';
+  if (state === 'upcoming') return net.launch ? 'opens ' + shortDate(net.launch) : 'soon';
+  return 'until ' + shortDate(net.sunset);
+}
+
+function bannerFor(net, state) {
+  if (state === 'live') return '';
+  let when;
+  if (state === 'upcoming') {
+    when = net.launch
+      ? `${esc(net.name)} opens ${esc(longDate(net.launch))} — ${esc(inDays(daysBetween(TODAY, net.launch)))}.`
+      : `${esc(net.name)} is not open yet. ${esc(net.launch_note || 'No date set.')}`;
+  } else if (state === 'sunsetting') {
+    when = `${esc(net.name)} retires ${esc(longDate(net.sunset))} — ${esc(inDays(daysBetween(TODAY, net.sunset)))}.`;
+  } else {
+    when = net.sunset
+      ? `${esc(net.name)} was retired on ${esc(longDate(net.sunset))}.`
+      : `${esc(net.name)} has been retired.`;
+  }
+  const move = net.successor && state !== 'upcoming'
+    ? ` <a href="#${esc(net.successor)}">Go to ${esc(net.successor)}</a>.` : '';
+  return `<div class="banner ${state === 'upcoming' ? 'info' : 'warn'}">
+      <span class="banner-when">${when}</span>
+      <p>${esc(net.notice || '')}${move}</p>
+    </div>`;
+}
+
+function poolCard(p) {
+  return `
     <div class="pool">
       <div class="pool-top">
         <span class="pool-logo">
@@ -200,29 +308,103 @@ fetch('pools.json', {cache:'no-cache'}).then(r => r.json()).then(d => {
         ${row('Contact', p.contact)}
       </dl>
       ${p.payout ? `<p class="payout">${esc(p.payout)}</p>` : ''}
-    </div>`).join('') || '<p class="note">No pools listed yet.</p>';
-}).catch(e => {
-  document.getElementById('pools').innerHTML =
-    '<div class="pool"><p class="note">Could not load <code>pools.json</code>: ' + esc(e.message) + '</p></div>';
-});
+    </div>`;
+}
 
-document.getElementById('template').textContent = JSON.stringify({
-  name: "your-pool",
-  operator: "you or your org",
-  chain: "alphanet",
-  mode: "pps-classic",
-  fee_bps: 100,
-  coinbase_tag: "/yourpool/",
-  stratum_url: "stratum+tcp://pool.example.com:3334",
-  dashboard_url: "https://pool.example.com",
-  status_url: "https://pool.example.com/api/status",
-  operator_address: "bc1q...",
-  pool_btc_address: "bc1q...",
-  payout: "One sentence: what the stratum username must be, and how miners get paid.",
-  software: "simplepool",
-  logo: "mining-pool-logos/yourpool.svg",
-  contact: "you@example.com"
-}, null, 2);
+const el = id => document.getElementById(id);
+let manifest = null, data = {}, current = null;
+
+function render(id) {
+  const net = manifest.networks.find(n => n.id === id);
+  if (!net) return;
+  current = id;
+  const state = stateOf(net);
+  const loaded = data[id];
+
+  for (const tab of el('nets').children) {
+    tab.setAttribute('aria-selected', String(tab.dataset.net === id));
+  }
+
+  el('banner').innerHTML = bannerFor(net, state);
+  el('summary').textContent = net.summary || '';
+
+  const file = `networks/${id}/pools.json`;
+  el('poolsfile').textContent = file;
+  el('pools').className = state === 'retired' ? 'retired' : '';
+
+  if (!loaded) {
+    el('pools').innerHTML = `<div class="empty"><strong>No data for ${esc(net.name)}</strong>
+      <code>${esc(file)}</code> could not be loaded. If this forknet has been taken down,
+      its entry in <code>networks.json</code> should go too.</div>`;
+    el('updated').textContent = '';
+  } else {
+    const pools = loaded.pools || [];
+    el('pools').innerHTML = pools.map(poolCard).join('') || `<div class="empty">
+      <strong>No pools listed on ${esc(net.name)} yet.</strong>
+      ${state === 'upcoming'
+        ? 'Listings are open before launch — add yours below and it is here on day one.'
+        : 'Add yours below.'}</div>`;
+    el('updated').textContent = `${pools.length} pool${pools.length === 1 ? '' : 's'} from ${file} · updated ${loaded.updated || 'unknown'}`;
+  }
+
+  el('template').textContent = JSON.stringify({
+    name: "your-pool",
+    operator: "you or your org",
+    chain: id,
+    mode: "pps-classic",
+    fee_bps: 100,
+    coinbase_tag: "/yourpool/",
+    stratum_url: "stratum+tcp://pool.example.com:3334",
+    dashboard_url: "https://pool.example.com",
+    status_url: "https://pool.example.com/api/status",
+    operator_address: "bc1q...",
+    pool_btc_address: "bc1q...",
+    payout: "One sentence: what the stratum username must be, and how miners get paid.",
+    software: "simplepool",
+    logo: "mining-pool-logos/yourpool.svg",
+    contact: "you@example.com"
+  }, null, 2);
+
+  if (location.hash.slice(1) !== id) history.replaceState(null, '', '#' + id);
+}
+
+fetch('networks.json', {cache: 'no-cache'}).then(r => r.json()).then(async m => {
+  manifest = m;
+  const nets = m.networks || [];
+
+  await Promise.all(nets.map(n =>
+    fetch(`networks/${n.id}/pools.json`, {cache: 'no-cache'})
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { data[n.id] = d; })
+      .catch(() => { data[n.id] = null; })));
+
+  el('nets').innerHTML = nets.map(n => {
+    const state = stateOf(n);
+    const count = data[n.id] ? (data[n.id].pools || []).length : 0;
+    return `<button class="net" role="tab" data-net="${esc(n.id)}" data-state="${state}"
+        aria-selected="false" title="${esc(n.summary || '')}">
+        <span class="net-name">${esc(n.name)}</span>
+        <span class="net-state">${esc(tabState(n, state))} · ${count} pool${count === 1 ? '' : 's'}</span>
+      </button>`;
+  }).join('');
+
+  for (const tab of el('nets').children) {
+    tab.addEventListener('click', () => render(tab.dataset.net));
+  }
+
+  const wanted = location.hash.slice(1);
+  const fallback = nets.find(n => n.id === m.default_network && stateOf(n) !== 'retired')
+    || nets.find(n => stateOf(n) !== 'retired') || nets[0];
+  render(nets.some(n => n.id === wanted) ? wanted : fallback && fallback.id);
+
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.slice(1);
+    if (id && id !== current && nets.some(n => n.id === id)) render(id);
+  });
+}).catch(e => {
+  el('pools').innerHTML =
+    '<div class="pool"><p class="note">Could not load <code>networks.json</code>: ' + esc(e.message) + '</p></div>';
+});
 </script>
 </body>
 </html>

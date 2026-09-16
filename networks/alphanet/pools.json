@@ -1,5 +1,5 @@
 {
-  "$comment": "GENERATED -- do not edit. A copy of networks/alphanet/pools.json, published here so the block explorer and anything else already fetching /pools.json keeps working as the forknets change underneath it. Which network this mirrors is set by \"root_network\" in networks.json. Edit networks/alphanet/pools.json and run tools/build.py.",
+  "$comment": "The pools on the alphanet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present. coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "alphanet",
   "updated": "2026-08-27",
   "schema_version": 1,
