@@ -1941,5 +1941,16 @@
       "/ecxfreebank.com/"
     ],
     "link": "https://ecxfreebank.com"
+  },
+  {
+    "id": 1005,
+    "name": "ECPool",
+    "addresses": [
+      "bc1p8f2nswh6pa6aedye80wkak74z0g40gkfdds8wcsaznm550altd4qptz0dk"
+    ],
+    "tags": [
+      "/ecpool.tech/"
+    ],
+    "link": "https://ecpool.tech"
   }
 ]
