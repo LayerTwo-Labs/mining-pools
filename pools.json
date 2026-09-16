@@ -68,7 +68,7 @@
       "pool_btc_address": null,
       "payout": "The stratum username is your address (bc1q or bc1p); the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds. Port 3336 is solo mode, 3335 is for rented hashrate.",
       "software": "simplepool",
-      "logo": "mining-pool-logos/ecashpool.svg",
+      "logo": "mining-pool-logos/ecpool.png",
       "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
     },
     {
