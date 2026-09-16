@@ -1,0 +1,7 @@
+{
+  "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
+  "network": "mainnet",
+  "updated": "2026-09-16",
+  "schema_version": 1,
+  "pools": []
+}
