@@ -1897,5 +1897,16 @@
       "/ecpool.tech/"
     ],
     "link": "https://ecpool.tech"
+  },
+  {
+    "id": 2003,
+    "name": "ePool",
+    "addresses": [
+      "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq"
+    ],
+    "tags": [
+      "ePool"
+    ],
+    "link": "https://ecash.epool.cash"
   }
 ]
