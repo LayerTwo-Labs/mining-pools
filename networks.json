@@ -1,9 +1,9 @@
 {
   "$comment": "Which forknets exist, and where each one is in its life. index.html reads this to build the tab strip; tools/build.py reads it to decide what to generate. A network's displayed state is derived from its dates, so betanet turns LIVE on its launch date and alphanet turns retired on its sunset date without anyone editing this file that morning. See 'The network lifecycle' in README.md before changing root_network.",
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "schema_version": 1,
-  "root_network": "alphanet",
-  "default_network": "alphanet",
+  "root_network": "betanet",
+  "default_network": "betanet",
   "networks": [
     {
       "id": "alphanet",
