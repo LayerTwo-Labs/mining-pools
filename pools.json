@@ -22,7 +22,7 @@
       "contact": null
     },
     {
-      "name": "ECPool (ecpool.tech)",
+      "name": "eCPool.tech",
       "operator": "Wired4ncer",
       "chain": "betanet",
       "mode": "proportional",
@@ -37,6 +37,23 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/ecpool.png",
       "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
+    },
+    {
+      "name": "ePool",
+      "operator": "bitlewis",
+      "chain": "betanet",
+      "mode": "vibes",
+      "fee_bps": 60,
+      "coinbase_tag": "ePool",
+      "stratum_url": "stratum+tcp://mine.ecash.epool.cash:3334",
+      "dashboard_url": "https://ecash.epool.cash",
+      "status_url": "https://ecash.epool.cash/api/pool",
+      "operator_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
+      "pool_btc_address": "bc1qr7x0rlf56rphwrzcqgl37rmh2zed6xxrmnpwuq",
+      "payout": "The stratum username is your BTC address; rewards are split proportionally across the VIBES window and paid directly in the block coinbase.",
+      "software": "DATUM / Blocktfabric",
+      "logo": "mining-pool-logos/ePool.png",
+      "contact": "https://t.me/+don8J6skqi02OTZh"
     }
   ]
 }
