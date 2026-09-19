@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the betanet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"betanet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "betanet",
-  "updated": "2026-09-16",
+  "updated": "2026-09-19",
   "schema_version": 1,
   "pools": [
     {
@@ -54,6 +54,25 @@
       "software": "DATUM / Blocktfabric",
       "logo": "mining-pool-logos/ePool.png",
       "contact": "https://t.me/+don8J6skqi02OTZh"
-    }    
+    },
+    {
+      "name": "Pow.re",
+      "operator": "Pow.re",
+      "chain": "betanet",
+      "mode": "solo",
+      "fee_bps": 0,
+      "coinbase_tag": "/powre/",
+      "stratum_url": null,
+      "dashboard_url": null,
+      "status_url": null,
+      "operator_address": "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk",
+      "pool_btc_address": null,
+      "coinbase_addresses": [
+        "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk"
+      ],
+      "payout": "Pow.re's own fleet only, no outside hashrate. Solo mode: each block's coinbase pays Pow.re's address directly.",
+      "software": "simplepool",
+      "contact": "gabriel.hardy@pow.re"
+    }
   ]
 }

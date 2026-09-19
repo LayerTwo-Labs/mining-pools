@@ -1908,5 +1908,16 @@
       "ePool"
     ],
     "link": "https://ecash.epool.cash"
+  },
+  {
+    "id": 2004,
+    "name": "Pow.re",
+    "addresses": [
+      "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk"
+    ],
+    "tags": [
+      "/powre/"
+    ],
+    "link": ""
   }
 ]
