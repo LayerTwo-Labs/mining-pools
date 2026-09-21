@@ -1930,5 +1930,16 @@
       "/avonpool/"
     ],
     "link": "https://pool.beta.avonpool.xyz"
+  },
+  {
+    "id": 2006,
+    "name": "FreeBank",
+    "addresses": [
+      "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm"
+    ],
+    "tags": [
+      "/ecxfreebank.com/"
+    ],
+    "link": "https://ecxfreebank.com"
   }
 ]
