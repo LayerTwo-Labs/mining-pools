@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-09-16",
+  "updated": "2026-09-22",
   "schema_version": 1,
   "pools": [
     {
@@ -23,6 +23,26 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/freebank.svg",
       "contact": "https://github.com/mbdrivechains/freebank"
+    },
+    {
+      "name": "Pow.re",
+      "operator": "Pow.re",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 0,
+      "coinbase_tag": "/powre/",
+      "stratum_url": null,
+      "dashboard_url": null,
+      "status_url": null,
+      "operator_address": "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk",
+      "pool_btc_address": null,
+      "coinbase_addresses": [
+        "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk"
+      ],
+      "payout": "Pow.re's own fleet only, no outside hashrate. Solo mode: each block's coinbase pays Pow.re's address directly.",
+      "software": "DATUM",
+      "logo": "mining-pool-logos/powre.svg",
+      "contact": "gabriel.hardy@pow.re"
     }
   ]
 }
