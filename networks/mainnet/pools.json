@@ -3,5 +3,26 @@
   "network": "mainnet",
   "updated": "2026-09-16",
   "schema_version": 1,
-  "pools": []
+  "pools": [
+    {
+      "name": "FreeBank",
+      "operator": "mbdrivechains",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 0,
+      "coinbase_tag": "/ecxfreebank.com/",
+      "stratum_url": null,
+      "dashboard_url": "https://ecxfreebank.com",
+      "status_url": null,
+      "operator_address": "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm",
+      "pool_btc_address": null,
+      "coinbase_addresses": [
+        "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm"
+      ],
+      "payout": "Solo self-mining by the FreeBank sidechain operator (BIP300 slot 130). The coinbase pays the operator address directly; no public hashpower is solicited.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/freebank.svg",
+      "contact": "https://github.com/mbdrivechains/freebank"
+    }
+  ]
 }
