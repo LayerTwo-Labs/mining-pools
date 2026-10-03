@@ -1,7 +1,7 @@
 {
   "$comment": "GENERATED -- do not edit. A copy of networks/betanet/pools.json, published here so the block explorer and anything else already fetching /pools.json keeps working as the forknets change underneath it. Which network this mirrors is set by \"root_network\" in networks.json. Edit networks/betanet/pools.json and run tools/build.py.",
   "network": "betanet",
-  "updated": "2026-09-20",
+  "updated": "2026-09-22",
   "schema_version": 1,
   "pools": [
     {
@@ -71,7 +71,8 @@
         "3HxectQ44ECnadiofJjPGRMukEEAkjWjFk"
       ],
       "payout": "Pow.re's own fleet only, no outside hashrate. Solo mode: each block's coinbase pays Pow.re's address directly.",
-      "software": "simplepool",
+      "software": "DATUM",
+      "logo": "mining-pool-logos/powre.svg",
       "contact": "gabriel.hardy@pow.re"
     },
     {
