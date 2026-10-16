@@ -1886,5 +1886,16 @@
       "/ecxfreebank.com/"
     ],
     "link": "https://ecxfreebank.com"
+  },
+  {
+    "id": 3002,
+    "name": "eCPool.tech",
+    "addresses": [
+      "bc1pvucc743sax30wgs395mxkwe4eymnhwj9e8u3hk2a34yu5uge6fzqc3w949"
+    ],
+    "tags": [
+      "/ecpool.tech/"
+    ],
+    "link": "https://ecpool.tech"
   }
 ]
