@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-09-16",
+  "updated": "2026-10-16",
   "schema_version": 1,
   "pools": [
     {
@@ -23,6 +23,23 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/freebank.svg",
       "contact": "https://github.com/mbdrivechains/freebank"
+    },
+    {
+      "name": "eCPool.tech",
+      "operator": "Wired4ncer",
+      "chain": "mainnet",
+      "mode": "proportional",
+      "fee_bps": 100,
+      "coinbase_tag": "/ecpool.tech/",
+      "stratum_url": "stratum+tcp://mine.ecpool.tech:3334",
+      "dashboard_url": "https://ecpool.tech",
+      "status_url": "https://ecpool.tech/api/pool/health",
+      "operator_address": "bc1pvucc743sax30wgs395mxkwe4eymnhwj9e8u3hk2a34yu5uge6fzqc3w949",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your address (bc1q or bc1p); the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds. Port 3336 is solo mode, 3335 and 3337 are for rented hashrate.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/ecpool.png",
+      "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
     }
   ]
 }
