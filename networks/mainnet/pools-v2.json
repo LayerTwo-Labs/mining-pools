@@ -1908,5 +1908,27 @@
       "/powre/"
     ],
     "link": ""
+  },
+  {
+    "id": 3004,
+    "name": "avonpool",
+    "addresses": [
+      "bc1qljvzxk0tp6qtrunt590z5rtdhs8jhkkn4ny4rm"
+    ],
+    "tags": [
+      "/avonpool/"
+    ],
+    "link": "http://pool.avonpool.xyz"
+  },
+  {
+    "id": 3005,
+    "name": "bip300.xyz",
+    "addresses": [
+      "bc1qljvzxk0tp6qtrunt590z5rtdhs8jhkkn4ny4rm"
+    ],
+    "tags": [
+      "/bip300xyz/"
+    ],
+    "link": "http://pool.bip300.xyz"
   }
 ]

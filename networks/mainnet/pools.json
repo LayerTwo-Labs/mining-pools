@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-10-16",
+  "updated": "2026-10-29",
   "schema_version": 1,
   "pools": [
     {
@@ -60,6 +60,40 @@
       "software": "DATUM",
       "logo": "mining-pool-logos/powre.svg",
       "contact": "gabriel.hardy@pow.re"
+    },
+    {
+      "name": "avonpool",
+      "operator": "avonpool.xyz",
+      "chain": "mainnet",
+      "mode": "pplns",
+      "fee_bps": 100,
+      "coinbase_tag": "/avonpool/",
+      "stratum_url": "stratum+tcp://pool.avonpool.xyz:3334",
+      "dashboard_url": "http://pool.avonpool.xyz",
+      "status_url": "http://pool.avonpool.xyz/api/status",
+      "operator_address": "bc1qljvzxk0tp6qtrunt590z5rtdhs8jhkkn4ny4rm",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your BTC address (optionally .rig_label); the coinbase pays every miner in the PPLNS window directly, so the pool never holds funds. Port 3334 is from difficulty 1 for individual miners; 3335 (Braiins, from difficulty 1,048,576) and 3336 (NiceHash, from difficulty 2,000,000) are for rented or aggregated hashrate.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/avonpool.svg",
+      "contact": null
+    },
+    {
+      "name": "bip300.xyz",
+      "operator": "bip300.xyz",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 10,
+      "coinbase_tag": "/bip300xyz/",
+      "stratum_url": "stratum+tcp://pool.bip300.xyz:3334",
+      "dashboard_url": "http://pool.bip300.xyz",
+      "status_url": "http://pool.bip300.xyz/api/status",
+      "operator_address": "bc1qljvzxk0tp6qtrunt590z5rtdhs8jhkkn4ny4rm",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your BTC address (optionally .rig_label); solo mode pays the finder's address directly in that block's coinbase, minus the 0.1% operator fee. Port 3334 is from difficulty 1 for individual miners; 3335 (Braiins, from difficulty 1,048,576) and 3336 (NiceHash, from difficulty 2,000,000) are for rented or aggregated hashrate.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/bip300xyz.svg",
+      "contact": null
     }
   ]
 }
