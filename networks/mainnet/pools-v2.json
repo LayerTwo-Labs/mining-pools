@@ -1897,5 +1897,16 @@
       "/ecpool.tech/"
     ],
     "link": "https://ecpool.tech"
+  },
+  {
+    "id": 3003,
+    "name": "Pow.re",
+    "addresses": [
+      "3ChRTmgRVCfWz3bt2c4ja8jCVT8JwxhsD6"
+    ],
+    "tags": [
+      "/powre/"
+    ],
+    "link": ""
   }
 ]

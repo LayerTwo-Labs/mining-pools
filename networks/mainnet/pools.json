@@ -40,6 +40,26 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/ecpool.png",
       "contact": "https://t.me/+5ajPd2Q70Is0YzM0"
+    },
+    {
+      "name": "Pow.re",
+      "operator": "Pow.re",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 0,
+      "coinbase_tag": "/powre/",
+      "stratum_url": null,
+      "dashboard_url": null,
+      "status_url": null,
+      "operator_address": "3ChRTmgRVCfWz3bt2c4ja8jCVT8JwxhsD6",
+      "pool_btc_address": null,
+      "coinbase_addresses": [
+        "3ChRTmgRVCfWz3bt2c4ja8jCVT8JwxhsD6"
+      ],
+      "payout": "Pow.re's own fleet only, no outside hashrate. Solo mode: each block's coinbase pays Pow.re's address directly.",
+      "software": "DATUM",
+      "logo": "mining-pool-logos/powre.svg",
+      "contact": "gabriel.hardy@pow.re"
     }
   ]
 }
