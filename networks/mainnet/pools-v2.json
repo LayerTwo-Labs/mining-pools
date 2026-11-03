@@ -1913,12 +1913,12 @@
     "id": 3004,
     "name": "avonpool",
     "addresses": [
-      "bc1qljvzxk0tp6qtrunt590z5rtdhs8jhkkn4ny4rm"
+      "bc1q5he3fyf52fhj4hk3gpn20rd3dkuhfxyzl9h5vj"
     ],
     "tags": [
       "/avonpool/"
     ],
-    "link": "http://pool.avonpool.xyz"
+    "link": "https://pool.avonpool.xyz"
   },
   {
     "id": 3005,
