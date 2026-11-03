@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "schema_version": 1,
   "pools": [
     {
@@ -111,6 +111,23 @@
       "software": "ckpool",
       "logo": "mining-pool-logos/supapool.svg",
       "contact": "admin@supapool.xyz"
+    },
+    {
+      "name": "SegPool ECX",
+      "operator": "SegPool (segpool.com)",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 200,
+      "coinbase_tag": "/SegPool/",
+      "stratum_url": "stratum+tcp://stratum.ecx.segpool.com:3333",
+      "dashboard_url": "https://ecash.segpool.com",
+      "status_url": "https://ecash.segpool.com/api/pool",
+      "operator_address": "bc1qmgxwpp455dpj0xt3f0f8548hju25shrpluk47f",
+      "pool_btc_address": null,
+      "payout": "Solo: the stratum username is your ECX address plus a rig name (bc1q, 1 or 3 address, e.g. ADDRESS.rig1, any password). Each block's coinbase pays the finder 98% and the pool 2% directly, so the pool never holds funds.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/segpool.png",
+      "contact": "https://t.me/SegPoolECX"
     }
   ]
 }
