@@ -1930,5 +1930,16 @@
       "/bip300xyz/"
     ],
     "link": "http://pool.bip300.xyz"
+  },
+  {
+    "id": 3006,
+    "name": "supapool",
+    "addresses": [
+      "bc1qpcu9t0m9ymsq7l94ed0049fznhg2fm5z8cnj52"
+    ],
+    "tags": [
+      "/supapool.xyz/"
+    ],
+    "link": "https://www.supapool.xyz/ecx"
   }
 ]

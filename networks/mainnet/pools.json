@@ -94,6 +94,23 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/bip300xyz.svg",
       "contact": null
+    },
+    {
+      "name": "supapool",
+      "operator": "supapool.xyz",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 100,
+      "coinbase_tag": "/supapool.xyz/",
+      "stratum_url": "stratum+tcp://ecx.stratum.supapool.xyz:3383",
+      "dashboard_url": "https://www.supapool.xyz/ecx",
+      "status_url": "https://www.supapool.xyz/api/pools",
+      "operator_address": "bc1qpcu9t0m9ymsq7l94ed0049fznhg2fm5z8cnj52",
+      "pool_btc_address": null,
+      "payout": "The stratum username is your ECX address (optionally .worker); solo mode pays the finder's address directly in that block's coinbase, minus the 1% operator fee, on port 3383 (TCP) or 3384 (TLS).",
+      "software": "ckpool",
+      "logo": "mining-pool-logos/supapool.svg",
+      "contact": "admin@supapool.xyz"
     }
   ]
 }
