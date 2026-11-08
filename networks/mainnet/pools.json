@@ -127,7 +127,7 @@
       "payout": "The stratum username is your bc1 address (optionally .worker); PPLNS on port 3338 pays recent sharers directly in each block's coinbase and solo on port 3335 pays the finder directly, minus the 1% fee, with BMM sidechain fees included in the miners' reward.",
       "software": "public-pool (MergedHash fork)",
       "logo": "mining-pool-logos/mergedhash.svg",
-      "contact": "https://discord.gg/DF6TrsFDMJ"
+      "contact": "mine@mergedhash.com (or Discord: https://discord.gg/DF6TrsFDMJ)"
     }
   ]
 }
