@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-11-03",
+  "updated": "2026-11-10",
   "schema_version": 1,
   "pools": [
     {
@@ -111,6 +111,22 @@
       "software": "ckpool",
       "logo": "mining-pool-logos/supapool.svg",
       "contact": "admin@supapool.xyz"
+    },
+    {
+      "name": "eCashPool.io",
+      "operator": "eCashPool.io",
+      "chain": "mainnet",
+      "mode": "pps-classic",
+      "fee_bps": 0,
+      "coinbase_tag": "/ecashpool.io/",
+      "stratum_url": "stratum+tcp://stratum.ecashpool.io:3334",
+      "dashboard_url": "https://ecashpool.io/",
+      "status_url": "https://ecashpool.io/api/status",
+      "operator_address": "bc1qv4ttp3eaq3swhpj6gj2yfcv89ajd9ffqg0ceyq",
+      "pool_btc_address": "bc1qv4ttp3eaq3swhpj6gj2yfcv89ajd9ffqg0ceyq",
+      "payout": "PPS Classic with 0% fees. Use a Thunder sidechain (#9) address as the Stratum username, optionally followed by .rig_label. Accepted shares earn Thunder credits, paid to miners from the funded pool's Thunder payout reserve.",
+      "software": "simplepool",
+      "contact": null
     }
   ]
 }
