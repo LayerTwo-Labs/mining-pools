@@ -120,7 +120,7 @@
       "fee_bps": 100,
       "coinbase_tag": "/MergedHash/",
       "stratum_url": "stratum+tcp://mine.mergedhash.com:3338",
-      "dashboard_url": "https://mergedhash.com/ecx.html",
+      "dashboard_url": "https://mergedhash.com/ecx",
       "status_url": "https://mergedhash.com/api/miningboard/ecx",
       "operator_address": "bc1qk0rtqk4yclng06rue9pvswy272k9mvlkeg0akx",
       "pool_btc_address": null,
