@@ -1,7 +1,7 @@
 {
   "$comment": "The pools on the mainnet forknet. Add yours by opening a PR that appends one object to \"pools\". Every field marked required in README.md must be present, and \"chain\" must read \"mainnet\". coinbase_tag is the important one: it is the only thing that lets an explorer attribute a mined block to you. This file is hand-edited; the pools-v2.json beside it is generated from it by tools/build.py, so run that script and commit its output in the same PR.",
   "network": "mainnet",
-  "updated": "2026-11-03",
+  "updated": "2026-11-10",
   "schema_version": 1,
   "pools": [
     {
@@ -14,9 +14,10 @@
       "stratum_url": null,
       "dashboard_url": "https://ecxfreebank.com",
       "status_url": null,
-      "operator_address": "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm",
+      "operator_address": "bc1qwu0l4whx3sadm4dumfwqvqh4ahxyhxzumzrg0k",
       "pool_btc_address": null,
       "coinbase_addresses": [
+        "bc1qwu0l4whx3sadm4dumfwqvqh4ahxyhxzumzrg0k",
         "bc1qqlx8axdsvfpxdj8tytsdvf3dhgvrdp675shevm"
       ],
       "payout": "Solo self-mining by the FreeBank sidechain operator (BIP300 slot 130). The coinbase pays the operator address directly; no public hashpower is solicited.",
