@@ -1941,5 +1941,16 @@
       "/supapool.xyz/"
     ],
     "link": "https://www.supapool.xyz/ecx"
+  },
+  {
+    "id": 3007,
+    "name": "eCashPool.io",
+    "addresses": [
+      "bc1qv4ttp3eaq3swhpj6gj2yfcv89ajd9ffqg0ceyq"
+    ],
+    "tags": [
+      "/ecashpool.io/"
+    ],
+    "link": "https://ecashpool.io/"
   }
 ]
