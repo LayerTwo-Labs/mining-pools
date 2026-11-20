@@ -1975,5 +1975,27 @@
       "/SegPool/"
     ],
     "link": "https://ecash.segpool.com"
+  },
+  {
+    "id": 3010,
+    "name": "BCM EU · ECX SOLO",
+    "addresses": [
+      "bc1qssm4gk90kxas6g0me07spdjrzzmatwju64mtgd"
+    ],
+    "tags": [
+      "/BCM-ECX-EU-SOLO/"
+    ],
+    "link": "https://eu.bcmpool.online/ecx/?mode=solo"
+  },
+  {
+    "id": 3011,
+    "name": "BCM EU · ECX PPLNS",
+    "addresses": [
+      "bc1qssm4gk90kxas6g0me07spdjrzzmatwju64mtgd"
+    ],
+    "tags": [
+      "/BCM-ECX-EU-PPLNS/"
+    ],
+    "link": "https://eu.bcmpool.online/ecx/?mode=pplns"
   }
 ]

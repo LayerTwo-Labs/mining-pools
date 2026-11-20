@@ -162,6 +162,40 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/segpool.png",
       "contact": "https://t.me/SegPoolECX"
+    },
+    {
+      "name": "BCM EU · ECX SOLO",
+      "operator": "Bluefields Cryptocurrency Mining (BCM)",
+      "chain": "mainnet",
+      "mode": "solo",
+      "fee_bps": 100,
+      "coinbase_tag": "/BCM-ECX-EU-SOLO/",
+      "stratum_url": "stratum+tcp://eu.bcmpool.online:3340",
+      "dashboard_url": "https://eu.bcmpool.online/ecx/?mode=solo",
+      "status_url": "https://eu.bcmpool.online/ecx/api/status?mode=solo&hours=1",
+      "operator_address": "bc1qssm4gk90kxas6g0me07spdjrzzmatwju64mtgd",
+      "pool_btc_address": null,
+      "payout": "Use an ECX mainnet receiving address with an optional .worker suffix as the Stratum username; password x. SOLO pays the finding address directly in the block coinbase, less the 1% pool fee. High-difficulty rental endpoint: eu.bcmpool.online:4340.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/bcm.webp",
+      "contact": "workonlineservices2024@gmail.com"
+    },
+    {
+      "name": "BCM EU · ECX PPLNS",
+      "operator": "Bluefields Cryptocurrency Mining (BCM)",
+      "chain": "mainnet",
+      "mode": "pplns-coinbase",
+      "fee_bps": 100,
+      "coinbase_tag": "/BCM-ECX-EU-PPLNS/",
+      "stratum_url": "stratum+tcp://eu.bcmpool.online:3342",
+      "dashboard_url": "https://eu.bcmpool.online/ecx/?mode=pplns",
+      "status_url": "https://eu.bcmpool.online/ecx/api/status?mode=pplns&hours=1",
+      "operator_address": "bc1qssm4gk90kxas6g0me07spdjrzzmatwju64mtgd",
+      "pool_btc_address": null,
+      "payout": "Use an ECX mainnet receiving address with an optional .worker suffix as the Stratum username; password x. PPLNS pays eligible recent miners directly through the block coinbase, less the 1% pool fee. High-difficulty rental endpoint: eu.bcmpool.online:4342.",
+      "software": "simplepool",
+      "logo": "mining-pool-logos/bcm.webp",
+      "contact": "workonlineservices2024@gmail.com"
     }
   ]
 }
