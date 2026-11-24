@@ -1975,5 +1975,16 @@
       "/SegPool/"
     ],
     "link": "https://ecash.segpool.com"
+  },
+  {
+    "id": 3010,
+    "name": "Miners Haven",
+    "addresses": [
+      "19PKzg955isaByFE4AjBYfgzyecJVZ6e3f"
+    ],
+    "tags": [
+      "Miners Haven"
+    ],
+    "link": "https://theminershaven.org/#/pool/ecx-pplns"
   }
 ]

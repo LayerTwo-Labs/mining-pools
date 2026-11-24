@@ -162,6 +162,26 @@
       "software": "simplepool",
       "logo": "mining-pool-logos/segpool.png",
       "contact": "https://t.me/SegPoolECX"
+    },
+    {
+      "name": "Miners Haven",
+      "operator": "theminershaven.org",
+      "chain": "mainnet",
+      "mode": "pplns",
+      "fee_bps": 100,
+      "coinbase_tag": "Miners Haven",
+      "stratum_url": "stratum+tcp://theminershaven.org:3481",
+      "dashboard_url": "https://theminershaven.org/#/pool/ecx-pplns",
+      "status_url": "https://theminershaven.org/api/pools/ecx-pplns",
+      "operator_address": "19PKzg955isaByFE4AjBYfgzyecJVZ6e3f",
+      "pool_btc_address": "19PKzg955isaByFE4AjBYfgzyecJVZ6e3f",
+      "coinbase_addresses": [
+        "19PKzg955isaByFE4AjBYfgzyecJVZ6e3f"
+      ],
+      "payout": "The stratum username is your ECX address (1..., 3... or bc1...), optionally .workername; PPLNS on ports 3481 (ASIC) and 3482 (rentals), solo on 3491 and 3492, paid automatically from the pool wallet above 0.01 ECX. US endpoint: us.theminershaven.org, same ports.",
+      "software": "Miningcore",
+      "logo": "mining-pool-logos/theminershaven.svg",
+      "contact": "https://discord.gg/rfQRS5P"
     }
   ]
 }
